@@ -19,13 +19,13 @@ public class ConnectionHadoop {
 			@Override
 			public Void run() throws Exception {
 				Configuration config = new Configuration();
-				config.set("fs.defaultFS", "hdfs://192.168.0.140:9000/user/bdi");
+				config.set("fs.defaultFS", "hdfs://192.168.0.170:9000/user/bdi");
 				config.setBoolean("dfs.support.append", true);
 				
 				FileSystem fs = FileSystem.get(config);
 
-				Path upFileName = new Path("word.txt");
-				Path f = new Path("word.log");
+				Path upFileName = new Path("word2.txt");
+				Path f = new Path("word2.log");
 				if(fs.exists(upFileName)) {
 					fs.delete(upFileName,true);
 					fs.delete(f,true);
