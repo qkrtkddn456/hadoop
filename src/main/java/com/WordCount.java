@@ -48,7 +48,7 @@ public class WordCount {
 	//hadoop jar javah.jar com.WordCount
 	public static void main(String[] args) throws Exception{
 		Configuration conf = new Configuration();
-		Job job = Job.getInstance(conf);
+		Job job = Job.getInstance(conf,"WordCount");
 		job.setJarByClass(WordCount.class);
 		job.setMapperClass(WCMapper.class);
 		job.setReducerClass(WCReducer.class);

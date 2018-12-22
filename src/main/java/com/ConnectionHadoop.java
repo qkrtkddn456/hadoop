@@ -23,10 +23,12 @@ public class ConnectionHadoop {
 				config.setBoolean("dfs.support.append", true);
 				
 				FileSystem fs = FileSystem.get(config);
-				
+
 				Path upFileName = new Path("word.txt");
+				Path f = new Path("word.log");
 				if(fs.exists(upFileName)) {
 					fs.delete(upFileName,true);
+					fs.delete(f,true);
 				}
 				FSDataOutputStream fsdo = fs.create(upFileName);
 				fsdo.writeUTF("hi hi hi hey hey lol start hi");
