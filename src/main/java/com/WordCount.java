@@ -27,6 +27,7 @@ public class WordCount {
 			String line = value.toString();
 			StringTokenizer st = new StringTokenizer(line, "\t\r\n\f|,.()<>");
 			while(st.hasMoreTokens()) {
+				word.set(st.nextToken().toLowerCase());
 				context.write(word,lw);
 			}
 		}
@@ -44,7 +45,7 @@ public class WordCount {
 			context.write(key, lw);
 		}
 	}
-	
+	//hadoop jar javah.jar com.WordCount
 	public static void main(String[] args) throws Exception{
 		Configuration conf = new Configuration();
 		Job job = Job.getInstance(conf);
